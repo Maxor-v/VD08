@@ -1,0 +1,158 @@
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --dark: #2d3436;
+    --light: #f7f7f7;
+    --accent: #fd79a8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--dark);
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quote-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+}
+
+.quote-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary);
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.quote-text i {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    color: var(--secondary);
+    opacity: 0.3;
+    font-size: 2.5rem;
+}
+
+.quote-author {
+    text-align: right;
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.quote-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tag {
+    background: var(--secondary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.quote-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quote-button:hover {
+    background: #5b4cd8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+}
+
+.quote-button:active {
+    transform: translateY(1px);
+}
+
+.quote-button i {
+    animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .quote-card {
+        padding: 30px 20px;
+    }
+
+    .quote-text {
+        font-size: 1.2rem;
+    }
+}

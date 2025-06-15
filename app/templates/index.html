@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Случайные цитаты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Мудрые цитаты</h1>
+
+        <div class="quote-card">
+            {% if quote %}
+                <div class="quote-text">
+                    <i class="fas fa-quote-left"></i>
+                    {{ quote.quote }}
+                </div>
+                <div class="quote-author">
+                    — {{ quote.author }}
+                </div>
+                <div class="quote-tags">
+                    {% for tag in quote.tags %}
+                        <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Не удалось загрузить цитату
+                </div>
+            {% endif %}
+        </div>
+
+        <form method="POST">
+            <button type="submit" class="quote-button">
+                <i class="fas fa-sync-alt"></i> Новая цитата
+            </button>
+        </form>
+    </div>
+</body>
+</html>
